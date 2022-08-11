@@ -132,6 +132,11 @@ $(document).ready(function(){
                     colparent.attr("height",$(that).height());
                     genShortestCol();
                 },269)
+                
+                $(this).find("img").one("load",function(){
+                    colparent.attr("height",$(this).height());
+                    genShortestCol();
+                })
             }            
 
             if(colparent.is("[width]")){
