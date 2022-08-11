@@ -14,10 +14,6 @@
     margin:0!important;
 }
 
-.npf_row[style*="height: 1px;"]{
-    display:none;
-}
-
 .npf_row + .npf_row {
     margin-top:var(--NPF-Photoset-Spacing)!important;
 }
@@ -44,8 +40,8 @@
 
 .tmblr-full img {
     position:initial!important;
-    max-width:100%;
-    height:auto;
+    max-width:100%!important;
+    height:auto!important;
     cursor:pointer;
 }
 
