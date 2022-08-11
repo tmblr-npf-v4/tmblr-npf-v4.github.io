@@ -1,6 +1,6 @@
 ## Tumblr NPF Images Fix
 
-<sub>**v4.0 ヽ WRITTEN BY @GLENTHEMES [2022]&ensp;—&ensp; ~~last updated: 2022/08/09 15:50 GMT-7~~ EDITING IN PROGRESS**</sub>
+<sub>**v4.0 ヽ WRITTEN BY @GLENTHEMES [2022]&ensp;—&ensp; last updated: 2022/08/11 13:45 GMT-7**</sub>
 
 ##### TABLE OF CONTENTS:
 - [About](#about)
@@ -130,7 +130,7 @@ Options can be customized in `:root` in the CSS.
 | `--NPF-Lightbox-Delay`       | After clicking an NPF image, this is the delay for the lightbox to show up. <br>Not recommended to leave this at `0`, as the wrong image may appear. | can be in `ms` or `s` |
 | `--NPF-Lightbox-FadeIn`      | Fade-in speed of the lightbox. | can be in `ms` or `s`     |
 | `--NPF-Captions-Spacing`     | Gap between NPF images and their caption. | e.g. `4px`, `10px`     |
-| `--NPF-Move-1st-Photoset`    | Moves the first NPF photo (or photoset) to the top of the post, <br>mimicing regular photo posts. | `"yes"` or `"no"`     |
+| `--NPF-Move-1st-Photoset`    | Moves the first NPF photo (or photoset) to the top of the post, <br>mimicking regular photo posts. | `"yes"` or `"no"`     |
 | `--NPF-No-Caption-Remove-OP` | If the post only consists of a NPF photo (or photoset) and has no caption, <br>remove original poster's username. | `"yes"` or `"no"`     |
 
 ---
@@ -138,6 +138,8 @@ Options can be customized in `:root` in the CSS.
 #### ⸨&ensp;NEED HELP?&ensp;⸩
 
 If you run into any issues, please contact me on Discord ([discord.gg/RcMKnwz](https://discord.gg/RcMKnwz)).  
-Read the **#server-rules** once you're there, and share your Pastery theme code so I can take a look at it.
+Read the **#server-rules** once you're there, and share your Pastery theme code so I can take a look at it.  
+
+If you found this helpful, please consider donating @ [ko-fi.com/glenthemes](https://ko-fi.com/glenthemes)!
 
 <sub>[**-ˋˏ✄┈┈&ensp;BACK TO TOP**](#tumblr-npf-images-fix)</sub>
