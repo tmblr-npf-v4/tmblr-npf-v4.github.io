@@ -65,6 +65,7 @@
    <!------         https://waa.ai/tmblr-npf-v4         ------>
    <script src="//tmblr-npf-v4.github.io/npf-script.js"></script>
    <link href="//tmblr-npf-v4.github.io/npf-styling.css" rel="stylesheet">
+   <link href="//assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css" rel="stylesheet" media="screen">
    <script>
    $(document).ready(function(){
        npf_v4_fix();
