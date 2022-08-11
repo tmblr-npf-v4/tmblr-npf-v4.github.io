@@ -2,6 +2,19 @@
 
 <sub>**v4.0 ヽ WRITTEN BY @GLENTHEMES [2022]&ensp;—&ensp; ~~last updated: 2022/08/09 15:50 GMT-7~~ EDITING IN PROGRESS**</sub>
 
+##### TABLE OF CONTENTS:
+- [About](#about)
+- [Features](#features)
+- [How to Use](#how-to-use)
+	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;jQuery & basic setup
+	- [step 2](#step-2find-out-what-captions-your-theme-uses)&ensp;⸺&ensp;find out what type of captions your theme uses
+	- [old captions](#step-3-afor-old-captions)
+	- [new captions](#step-3-bfor-new-captions)
+- [Options / customization](#options)
+- [Need help?](#need-help)
+
+---
+
 #### ⸨&ensp;ABOUT&ensp;⸩
 
 <sub>**WHAT IS NPF?**</sub>
@@ -16,6 +29,7 @@
 
 ---
 
+
 #### ⸨&ensp;FEATURES&ensp;⸩
 
 - shows HD versions of images if available
@@ -24,6 +38,88 @@
 - single and multi lightbox function
 - custom images spacing
 - custom spacing between images & captions
+
+---
+
+#### ⸨&ensp;HOW TO USE&ensp;⸩
+
+###### STEP 1&ensp;⸺&ensp;BASIC SETUP
+
+1. Find out if your theme already has jQuery installed. To do this, type `jquery` into the searchbar:  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184226559-22a74190-2373-4f48-b05a-1d8550204288.png">  
+   If it doesn't exist, paste this somewhere under `<head>`:
+   ```
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   ```
+   
+2. Paste this under the jQuery script:
+   ```html
+   <!------ NPF images fix (v4.0) by @glenthemes [2022] ------>
+   <!------         https://waa.ai/tmblr-npf-v4         ------>
+   <script src="//tmblr-npf-v4.github.io/npf-script.js"></script>
+   <link href="//tmblr-npf-v4.github.io/npf-styling.css" rel="stylesheet">
+   <script>
+   $(document).ready(function(){
+       npf_v4_fix();
+   });
+   </script>
+   
+   <style>
+   :root {
+       --NPF-GIFV-To-GIF:"yes";
+       --NPF-Photoset-Spacing:4px;
+       --NPF-Lightbox-Delay:100ms; /* can be ms or s */
+       --NPF-Lightbox-FadeIn:100ms; /* can be ms or s */
+       --NPF-Captions-Spacing:1em;
+   
+       --NPF-Move-1st-Photoset:"yes";
+       --NPF-No-Caption-Remove-OP:"yes";
+   }
+   </style>   
+   ```
+
+---
+
+###### STEP 2&ensp;⸺&ensp;FIND OUT WHAT CAPTIONS YOUR THEME USES
+
+Using the searchbar, search for `{block:Reblogs}`  
+<img width="350" src="https://user-images.githubusercontent.com/110954255/184223511-62fa418c-815a-4272-8112-2ac8aa2fdc94.png">  
+If it doesn't exist, your theme uses **old captions**. Jump to [this step](#step-3-afor-old-captions).  
+If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor-new-captions).
+
+---
+
+###### STEP 3 (A)&ensp;⸺&ensp;FOR OLD CAPTIONS
+
+1. Using the searchbar, go to `{block:Text}`  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">  
+2. There should be a `{Body}` in there. Highlight it, and replace it with:
+  
+   ```
+   <div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>{Body}</div>
+   ```
+
+---
+
+###### STEP 3 (B)&ensp;⸺&ensp;FOR NEW CAPTIONS
+
+1. Using the searchbar, go to `{block:Text}`  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png"> 
+2. Travel a few lines down until you see `{block:Reblogs}`. Just after it, there should be a `div` that contains the reblogger information (usually it's their name and their icon). Paste this just before the **closing pointy right bracket** `>`:  
+   
+   ```
+    npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}
+   ```
+   
+   Result should look something like this:
+   
+   ```
+   {block:Reblogs}
+   <div class="reblogger-head" npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
+   ```
+---
+
+#### ⸨&ensp;OPTIONS&ensp;⸩
 
 Options can be customized in `:root` in the CSS.
 
@@ -39,8 +135,9 @@ Options can be customized in `:root` in the CSS.
 
 ---
 
-#### ⸨&ensp;HOW TO USE&ensp;⸩
-
----
-
 #### ⸨&ensp;NEED HELP?&ensp;⸩
+
+If you run into any issues, please contact me on Discord ([discord.gg/RcMKnwz](https://discord.gg/RcMKnwz)).  
+Read the **#server-rules** once you're there, and share your Pastery theme code so I can take a look at it.
+
+<sub>[**-ˋˏ✄┈┈&ensp;BACK TO TOP**](#tumblr-npf-images-fix)</sub>
