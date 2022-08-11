@@ -1,12 +1,12 @@
 ## Tumblr NPF Images Fix
 
-<sub>**v4.0 ヽ WRITTEN BY @GLENTHEMES [2022]&ensp;—&ensp; last updated: 2022/08/11 13:45 GMT-7**</sub>
+<sub>**v4.0 ヽ WRITTEN BY @GLENTHEMES [2022]&ensp;—&ensp; last updated: 2022/08/11 14:34 GMT-7**</sub>
 
 ##### TABLE OF CONTENTS:
 - [About](#about)
 - [Features](#features)
 - [How to Use](#how-to-use)
-	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;jQuery & basic setup
+	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;basic setup
 	- [step 2](#step-2find-out-what-captions-your-theme-uses)&ensp;⸺&ensp;find out what type of captions your theme uses
 	- [old captions](#step-3-afor-old-captions)
 	- [new captions](#step-3-bfor-new-captions)
