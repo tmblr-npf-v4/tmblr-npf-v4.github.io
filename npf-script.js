@@ -140,6 +140,12 @@ $(document).ready(function(){
                     genShortestCol();
                 })
             }
+            
+            // loading fallback, #2
+                $(this).find("img").one("load",function(){
+                    colparent.attr("height",$(this).height());
+                    genShortestCol();
+                })
 
             if(colparent.is("[width]")){
                 let colw = parseFloat(colparent.attr("width"));
