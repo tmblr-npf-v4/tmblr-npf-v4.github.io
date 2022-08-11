@@ -44,15 +44,22 @@
 #### ⸨&ensp;HOW TO USE&ensp;⸩
 
 ###### STEP 1&ensp;⸺&ensp;BASIC SETUP
+1. Locate `{block:Posts}` by typing it into the searchbar:  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184245885-5a3c8522-d2aa-4071-aa7b-556c71918d9c.png">  
+   
+   Highlight it and replace it with:
+   ```
+   {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
+   ```
 
-1. Find out if your theme already has jQuery installed. To do this, type `jquery` into the searchbar:  
+2. Find out if your theme already has jQuery installed. To do this, type `jquery` into the searchbar:  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184226559-22a74190-2373-4f48-b05a-1d8550204288.png">  
    If it doesn't exist, paste this somewhere under `<head>`:
    ```
    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    ```
    
-2. Paste this under the jQuery script:
+3. Paste this under the jQuery script:
    ```html
    <!------ NPF images fix (v4.0) by @glenthemes [2022] ------>
    <!------         https://waa.ai/tmblr-npf-v4         ------>
@@ -75,7 +82,7 @@
        --NPF-Move-1st-Photoset:"yes";
        --NPF-No-Caption-Remove-OP:"yes";
    }
-   </style>   
+   </style>
    ```
 
 ---
