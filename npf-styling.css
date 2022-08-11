@@ -6,7 +6,7 @@
     display:none;
 }
 
-[npf-multimedia], .npf_inst {
+.npf_inst {
     display:inline-block;
     vertical-align:middle;
 }
