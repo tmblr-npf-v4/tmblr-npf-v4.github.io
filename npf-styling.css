@@ -20,6 +20,7 @@
 
 .npf_row {
     margin:0!important;
+    width:100%;
 }
 
 .npf_row + .npf_row {
