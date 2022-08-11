@@ -6,7 +6,9 @@
     display:none;
 }
 
+[npf-multimedia] *:not(.tmblr-attribution, .tmblr-alt-text-helper),
 .npf_inst *:not(.tmblr-attribution, .tmblr-alt-text-helper){
+    font-size:0;
     line-height:0;
 }
 
