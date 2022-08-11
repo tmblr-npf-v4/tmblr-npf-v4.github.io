@@ -112,7 +112,6 @@ $(document).ready(function(){
       
         // get ORIGINAL IMAGE's dimensions,
         // take that ratio and apply it on current column size
-        function uhhh(){
         $(".npf_col a.post_media_photo_anchor").each(function(){
             let that = this;
           
@@ -128,24 +127,12 @@ $(document).ready(function(){
             if(isNaN(z_ogw)){
                 $(this).addClass("npf-no-data");
                 
-                // loading fallback, #1
+                // loading fallback
                 setTimeout(() => {
                     colparent.attr("height",$(that).height());
                     genShortestCol();
                 },269)
-              
-                // loading fallback, #2
-                $(this).find("img").one("load",function(){
-                    colparent.attr("height",$(this).height());
-                    genShortestCol();
-                })
-            }
-            
-            // loading fallback, #2
-                $(this).find("img").one("load",function(){
-                    colparent.attr("height",$(this).height());
-                    genShortestCol();
-                })
+            }            
 
             if(colparent.is("[width]")){
                 let colw = parseFloat(colparent.attr("width"));
@@ -154,10 +141,13 @@ $(document).ready(function(){
 
                 genShortestCol();
             }
+            
+            // loading fallback
+            $(this).find("img").one("load",function(){
+                colparent.attr("height",$(this).height());
+                genShortestCol();
+            })
         })// end a.anchor each
-        }
-        
-        uhhh()
       
         function genShortestCol(){
             $(".npf_row:has(.npf_col[height])").each(function(){
@@ -405,8 +395,4 @@ $(document).ready(function(){
             
         })//end npfbase each
     }//end entire npf function
-    
-    $(window).load(function(){
-        uhhh()
-    });
 });//end ready
