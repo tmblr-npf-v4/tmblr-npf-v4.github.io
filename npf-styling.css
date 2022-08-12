@@ -2,10 +2,6 @@
     visibility:hidden;
 }
 
-[npf-v4-fix]{
-    display:none;
-}
-
 .npf_inst {
     display:inline-block;
     vertical-align:middle;
@@ -28,6 +24,7 @@
 }
 
 .npf_col a.post_media_photo_anchor {
+    display:block;
     width:100%;
 }
 
@@ -44,6 +41,7 @@
 }
 
 .tmblr-full {
+    display:flex;
     padding-bottom:0!important;
 }
 
