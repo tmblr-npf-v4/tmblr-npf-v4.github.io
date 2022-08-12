@@ -2,6 +2,10 @@
     visibility:hidden;
 }
 
+*:not(p) + [npf-multimedia]{
+    margin-top:var(--NPF-Captions-Spacing);
+}
+
 .npf_inst {
     display:inline-block;
     vertical-align:middle;
