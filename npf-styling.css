@@ -2,7 +2,7 @@
     visibility:hidden;
 }
 
-*:not(p) + [npf-multimedia]{
+*:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
     margin-top:var(--NPF-Captions-Spacing);
 }
 
@@ -56,6 +56,6 @@
     cursor:pointer;
 }
 
-.npf_inst + * {
+[npf-multimedia] + *, .npf_inst + * {
     margin-top:var(--NPF-Captions-Spacing);
 }
