@@ -1,5 +1,5 @@
 .npf-lightbox-active .tmblr-lightbox *:not(.vignette){
-/*     visibility:hidden; */
+    visibility:hidden;
 }
 
 *:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
