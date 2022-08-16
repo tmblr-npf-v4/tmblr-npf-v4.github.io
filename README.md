@@ -5,6 +5,7 @@
 ##### TABLE OF CONTENTS:
 - [About](#about)
 - [Features](#features)
+- [Warning](#warning)
 - [How to Use](#how-to-use)
 	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;basic setup
 	- [step 2](#step-2find-out-what-captions-your-theme-uses)&ensp;⸺&ensp;find out what type of captions your theme uses
@@ -44,6 +45,11 @@
 - single and multi lightbox function
 - custom images spacing
 - custom spacing between images & captions
+
+---
+
+#### ⸨&ensp;WARNING&ensp;⸩
+If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you can find existing NPF modifications in your theme, you likely do not need to install this one.
 
 ---
 
