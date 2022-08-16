@@ -52,7 +52,7 @@
 .tmblr-full img {
     position:initial!important;
     max-width:100%!important;
-    height:auto!important;
+    vertical-align:middle;
     cursor:pointer;
 }
 
