@@ -13,6 +13,7 @@ p + [npf-multimedia], p + .npf_inst {
 .npf_inst {
     display:inline-block;
     vertical-align:middle;
+    width:100%;
 }
 
 /* 
