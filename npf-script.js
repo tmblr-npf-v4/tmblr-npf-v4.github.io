@@ -145,47 +145,51 @@ window.npf_v4_fix = function(o_o){
           
             // get ORIGINAL IMAGE's dimensions,
             // take that ratio and apply it on current column size
-            $(".npf_col a.post_media_photo_anchor").each(function(){
-                let that = this;
-              
-                let z_ogw = parseInt($(this).attr("data-big-photo-width"));
-                let z_ogh = parseInt($(this).attr("data-big-photo-height"));            
-        
-                let z_ratio = z_ogw / z_ogh;          
-        
-                let rowparent = $(this).parents(".npf_row");
-                let colparent = $(this).parents(".npf_col");
-              
-                // fallback for if [data-big-photo-width] doesn't have a value
-                if(isNaN(z_ogw)){
-                    $(this).addClass("npf-no-data");
-                    
-                    // loading fallback
-                    setTimeout(() => {
-                        colparent.attr("height",$(that).height());
+            function npfIMGheights(){
+                $(".npf_col a.post_media_photo_anchor").each(function(){
+                    let that = this;
+
+                    let z_ogw = parseInt($(this).attr("data-big-photo-width"));
+                    let z_ogh = parseInt($(this).attr("data-big-photo-height"));            
+
+                    let z_ratio = z_ogw / z_ogh;          
+
+                    let rowparent = $(this).parents(".npf_row");
+                    let colparent = $(this).parents(".npf_col");
+
+                    // fallback for if [data-big-photo-width] doesn't have a value
+                    if(isNaN(z_ogw)){
+                        $(this).addClass("npf-no-data");
+
+                        // loading fallback
+                        setTimeout(() => {
+                            colparent.attr("height",$(that).height());
+                            genShortestCol();
+                        },269)
+
+                        $(this).find("img").one("load",function(){
+                            colparent.attr("height",$(this).height());
+                            genShortestCol();
+                        })
+                    }            
+
+                    if(colparent.is("[width]")){
+                        let colw = parseFloat(colparent.attr("width"));
+                        let colh = Math.floor(colw / z_ratio);
+                        colparent.attr("height",colh);
+
                         genShortestCol();
-                    },269)
-                    
+                    }
+
+                    // loading fallback
                     $(this).find("img").one("load",function(){
                         colparent.attr("height",$(this).height());
                         genShortestCol();
                     })
-                }            
-        
-                if(colparent.is("[width]")){
-                    let colw = parseFloat(colparent.attr("width"));
-                    let colh = Math.floor(colw / z_ratio);
-                    colparent.attr("height",colh);
-        
-                    genShortestCol();
-                }
-                
-                // loading fallback
-                $(this).find("img").one("load",function(){
-                    colparent.attr("height",$(this).height());
-                    genShortestCol();
-                })
-            })// end a.anchor each
+                })// end a.anchor each
+            }//end npfIMGheights
+            
+            npfIMGheights();
           
             function genShortestCol(){
                 $(".npf_row:has(.npf_col[height])").each(function(){
@@ -564,8 +568,11 @@ window.npf_v4_fix = function(o_o){
                         $(".tmblr-lightbox").attr("current-npf",nextNPF);
                     }
                 }
-            }//end right arrow
-            
+            }//end right arrow            
         });//end ready
+        
+        $(window).on("load", function(){
+            npfIMGheights();
+        });
     }//end dostuff
 }//end entire npf function
