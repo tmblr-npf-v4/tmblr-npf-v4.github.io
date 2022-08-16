@@ -2,6 +2,10 @@
     visibility:hidden;
 }
 
+p + [npf-multimedia], p + .npf_inst {
+    margin-top:1em;
+}
+
 *:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
     margin-top:var(--NPF-Captions-Spacing);
 }
