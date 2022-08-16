@@ -36,7 +36,6 @@
 
 ---
 
-
 #### ⸨&ensp;FEATURES&ensp;⸩
 
 - shows HD versions of images if available
@@ -51,8 +50,8 @@
 #### ⸨&ensp;HOW TO USE&ensp;⸩
 
 ###### STEP 1&ensp;⸺&ensp;BASIC SETUP
-1. Go into `Edit HTML` of your blog's customize page, and locate `{block:Posts}` by typing it into the searchbar:  
-   <img width="350" src="https://user-images.githubusercontent.com/110954255/184245885-5a3c8522-d2aa-4071-aa7b-556c71918d9c.png">  
+1. Go into `Edit HTML` of your blog's customize page, and locate `{block:Posts` by typing it into the searchbar:  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184795109-403aa334-dfe7-4831-830f-a621723b3129.png">  
    
    Highlight it and replace it with:
    ```
