@@ -573,6 +573,7 @@ window.npf_v4_fix = function(o_o){
         
         $(window).on("load", function(){
             npfIMGheights();
+            $("[bmlyi]").remove();
         });
     }//end dostuff
 }//end entire npf function
