@@ -27,6 +27,13 @@
 - [v2.0](https://glenthemes.tumblr.com/post/638038350689976320) — Dec 2020
 - [v3.0](https://glenthemes.tumblr.com/post/659034084446748672) — Aug 2021
 
+<sub>**WHAT'S NEW:**</sub>  
+❀ &thinsp;can call the function with or without `$(document).ready(function(){...`  
+❀ &thinsp;auto-adds jQuery if you don't already have it  
+❀ &thinsp;more options for caption/photoset placement  
+❀ &thinsp;lightboxes — works with mouse clicks & arrow keys  
+❀ &thinsp;«&thinsp;ᴏᴘᴛɪᴏɴᴀʟ&thinsp;»&ensp;change `.gifv` to `.gif`
+
 ---
 
 
@@ -44,33 +51,25 @@
 #### ⸨&ensp;HOW TO USE&ensp;⸩
 
 ###### STEP 1&ensp;⸺&ensp;BASIC SETUP
-1. Locate `{block:Posts}` by typing it into the searchbar:  
+1. Go into `Edit HTML` of your blog's customize page, and locate `{block:Posts}` by typing it into the searchbar:  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184245885-5a3c8522-d2aa-4071-aa7b-556c71918d9c.png">  
    
    Highlight it and replace it with:
    ```
    {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
    ```
-
-2. Find out if your theme already has jQuery installed. To do this, type `jquery` into the searchbar:  
-   <img width="350" src="https://user-images.githubusercontent.com/110954255/184226559-22a74190-2373-4f48-b05a-1d8550204288.png">  
-   If it doesn't exist, paste this somewhere under `<head>`:
-   ```
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   ```
    
-3. Paste this under the jQuery script:
+2. We install the actual NPF mods in this step.  
+   You have two choices, you can either:  
+   ❀ &thinsp;a. paste these after `<head>`   
+   ❀ &thinsp;b. paste these just above `</body>`
    ```html
    <!------ NPF images fix (v4.0) by @glenthemes [2022] ------>
    <!------         https://waa.ai/tmblr-npf-v4         ------>
    <script src="//tmblr-npf-v4.github.io/npf-script.js"></script>
    <link href="//tmblr-npf-v4.github.io/npf-styling.css" rel="stylesheet">
    <link href="//assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css" rel="stylesheet" media="screen">
-   <script>
-   $(document).ready(function(){
-       npf_v4_fix();
-   });
-   </script>
+   <script>npf_v4_fix();</script>
    
    <style>
    :root {
@@ -135,7 +134,7 @@ Options can be customized in `:root` in the CSS.
 |------------------------------|--------------------------------------------|-----------------------|
 | `--NPF-GIFV-To-GIF`          | Turns `.gifv` GIFs into `.gif` format.     | `"yes"` or `"no"`     |
 | `--NPF-Photoset-Spacing`     | Spacing between NPF images.                | e.g. `4px`, `10px`    |
-| `--NPF-Lightbox-Delay`       | After clicking an NPF image, this is the delay for the lightbox to show up. <br>Not recommended to leave this at `0`, as there is a very short delay before the lightbox appears, and will cause a flash. | can be in `ms` or `s` |
+| `--NPF-Lightbox-Delay`       | After clicking an NPF image, this is the delay for the lightbox to show up. <br>Not recommended to leave this at `0`, as there is a very <br>short delay before the lightbox appears, and will cause a flash. | can be in `ms` or `s` |
 | `--NPF-Lightbox-FadeIn`      | Fade-in speed of the lightbox. | can be in `ms` or `s`     |
 | `--NPF-Captions-Spacing`     | Gap between NPF images and their caption. | e.g. `4px`, `10px`     |
 | `--NPF-Move-1st-Photoset`    | Moves the first NPF photo (or photoset) to the top of the post, <br>mimicking regular photo posts. | `"yes"` or `"no"`     |
