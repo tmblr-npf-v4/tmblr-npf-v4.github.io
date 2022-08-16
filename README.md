@@ -28,7 +28,7 @@
 - [v3.0](https://glenthemes.tumblr.com/post/659034084446748672) — Aug 2021
 
 <sub>**WHAT'S NEW:**</sub>  
-❀ &thinsp;can call the function with or without `$(document).ready(function(){...`  
+❀ &thinsp;can use the function with or without `$(document).ready(function(){...`  
 ❀ &thinsp;auto-adds jQuery if you don't already have it  
 ❀ &thinsp;more options for caption/photoset placement  
 ❀ &thinsp;lightboxes — works with mouse clicks & arrow keys  
@@ -61,7 +61,7 @@
    
 2. We install the actual NPF mods in this step.  
    You have two choices, you can either:  
-   ❀ &thinsp;a. paste these after `<head>`   
+   ❀ &thinsp;a. paste these just above `</head>`   
    ❀ &thinsp;b. paste these just above `</body>`
    ```html
    <!------ NPF images fix (v4.0) by @glenthemes [2022] ------>
