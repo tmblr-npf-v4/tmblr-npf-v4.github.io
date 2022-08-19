@@ -323,10 +323,22 @@ window.npf_v4_fix = function(o_o){
                             // if similar to an original photo post
                             // aka if there is no text before it
                             if($.trim($(this).prevAll().text()) == ""){
-                                $(this).addClass("npf_photo_origin")
-                            }
-                        })
-                    }
+                                $(this).addClass("npf_photo_origin");
+                                $(this).insertBefore($(text_body));
+                                
+                                // NO text after img(s)
+                                if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
+                                    
+                                    $(text_body).remove();
+                                }
+                                
+                                // HAS text after img(s)
+                                else {
+                                    
+                                }
+                            }//end if img(s) has no prev txt
+                        })//end if npf_inst each
+                    }//end if [original-post]
             
                     // if npf's post is a REBLOG
                     else if($(this).is("[reblogged-post]")){
@@ -357,7 +369,7 @@ window.npf_v4_fix = function(o_o){
                                         if(rmvop == "yes"){
                                           emP.remove();
                                           $(this).insertBefore($(text_body));
-                                          $(this).nextAll().remove()
+                                          $(this).next(".npf_no_caption").remove()
                                         }
                                         
                                         else if(rmvop == "no"){
@@ -372,7 +384,7 @@ window.npf_v4_fix = function(o_o){
                                       if(reloz == "no" && rmvop == "yes"){
                                         emP.remove();
                                         $(this).insertBefore($(text_body));
-                                        $(this).nextAll().remove()
+                                        $(this).next(".npf_no_caption").remove()
                                       }
                                     }//end NO caption
                                     
@@ -584,7 +596,5 @@ window.npf_v4_fix = function(o_o){
                 $("[bmlyi]").remove();
             });
         });//end ready
-        
-        
     }//end dostuff
 }//end entire npf function
