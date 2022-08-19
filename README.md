@@ -109,8 +109,8 @@ Please also be aware of the difference between the following:
 
 Using the searchbar, search for `{block:Reblogs}`  
 <img width="350" src="https://user-images.githubusercontent.com/110954255/184223511-62fa418c-815a-4272-8112-2ac8aa2fdc94.png">  
-If it doesn't exist, your theme uses **old captions**. Jump to [this step](#step-3-afor-old-captions).  
-If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor-new-captions).
+If it doesn't exist, jump to [this step](#step-3-afor-old-captions).  
+If it exists, jump to [this step](#step-3-bfor-new-captions).
 
 ---
 
@@ -168,7 +168,7 @@ If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor
    
    ```
    {block:Reblogs}
-   <div class="reblogger-head" npf-multimedia reblogged-post>
+   <div class="some-name" npf-multimedia reblogged-post>
    ```
 
 3. A bit further down, just before `{/block:Reblogs}`, you should find a `{Body}`.  
