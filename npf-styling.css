@@ -61,7 +61,7 @@ p + [npf-multimedia], p + .npf_inst {
     cursor:pointer;
 }
 
-[npf-items="1"] > .tmblr-full img {
+.npf_inst > .tmblr-full img {
     height:auto!important;
 }
 
