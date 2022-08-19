@@ -61,6 +61,10 @@ p + [npf-multimedia], p + .npf_inst {
     cursor:pointer;
 }
 
+[npf-items="1"] > .tmblr-full:only-of-type {
+    height:auto!important;
+}
+
 [npf-multimedia] + *, .npf_inst + * {
     margin-top:var(--NPF-Captions-Spacing);
 }
