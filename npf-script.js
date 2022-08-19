@@ -356,7 +356,7 @@ window.npf_v4_fix = function(o_o){
                                         // b. but only do it if user wishes to remove OP info
                                         if(rmvop == "yes"){
                                           emP.remove();
-                                          $(this).prependTo($(text_body));
+                                          $(this).insertBefore($(text_body));
                                           $(this).nextAll().remove()
                                         }
                                         
@@ -371,7 +371,7 @@ window.npf_v4_fix = function(o_o){
                                       // c. user WANTS OP info to be removed
                                       if(reloz == "no" && rmvop == "yes"){
                                         emP.remove();
-                                        $(this).prependTo($(text_body));
+                                        $(this).insertBefore($(text_body));
                                         $(this).nextAll().remove()
                                       }
                                     }//end NO caption
@@ -382,7 +382,7 @@ window.npf_v4_fix = function(o_o){
                                       
                                       if(reloz == "yes"){
                                         emP.remove();
-                                        $(this).prependTo($(text_body));
+                                        $(this).insertBefore($(text_body));
                                         $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
                                       }
                                     }//end HAS caption
@@ -439,7 +439,7 @@ window.npf_v4_fix = function(o_o){
                                               
                                                 $(this).parent("blockquote").addClass("bbq-tbd");
                                               
-                                                $(this).prependTo($(text_body))
+                                                $(this).insertBefore($(text_body))
                                                 $(".bbq-tbd").remove();
                                                 
                                                 if(rmvop == "yes"){
@@ -450,7 +450,7 @@ window.npf_v4_fix = function(o_o){
                                             // if npf DOES HAVE caption
                                             else {
                                                 if(reloz == "yes"){
-                                                    $(this).prependTo($(text_body));
+                                                    $(this).insertBefore($(text_body));
                                                 }
                                             }
                                         }// if a.tumblr-blog has no prev siblings
@@ -584,5 +584,7 @@ window.npf_v4_fix = function(o_o){
                 $("[bmlyi]").remove();
             });
         });//end ready
+        
+        
     }//end dostuff
 }//end entire npf function
