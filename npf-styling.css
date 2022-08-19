@@ -6,9 +6,28 @@ p + [npf-multimedia], p + .npf_inst {
     margin-top:1em;
 }
 
+/*----- NPF CAPTIONS SPACING -----*/
 *:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
     margin-top:var(--NPF-Captions-Spacing);
 }
+
+[npf-multimedia] + *, .npf_inst + * {
+    margin-top:var(--NPF-Captions-Spacing);
+}
+
+/*----- NPF IMAGES SPACING -----*/
+.tmblr-full + .npf_row,
+.npf_row + .tmblr-full,
+.npf_row + .npf_row,
+.tmblr-full + .tmblr-full {
+    margin-top:var(--NPF-Photoset-Spacing)!important;
+}
+
+.npf_col + .npf_col {
+    margin-left:var(--NPF-Photoset-Spacing)!important;
+}
+
+/*------------------------------*/
 
 .npf_inst {
     display:inline-block;
@@ -23,13 +42,10 @@ p + [npf-multimedia], p + .npf_inst {
     line-height:0;
 } */
 
+/*----- RE-INITIALIZE NPF STYLING -----*/
 .npf_row {
     margin:0!important;
     width:100%;
-}
-
-.npf_row + .npf_row {
-    margin-top:var(--NPF-Photoset-Spacing)!important;
 }
 
 .npf_col a.post_media_photo_anchor {
@@ -39,14 +55,6 @@ p + [npf-multimedia], p + .npf_inst {
 
 .npf_col, .tmblr-full {
     padding:0!important;
-}
-
-.npf_col + .npf_col {
-    margin-left:var(--NPF-Photoset-Spacing)!important;
-}
-
-.npf_inst .tmblr-full + .tmblr-full {
-    margin-top:var(--NPF-Photoset-Spacing);
 }
 
 .tmblr-full {
@@ -63,8 +71,4 @@ p + [npf-multimedia], p + .npf_inst {
 
 .npf_inst > .tmblr-full img {
     height:auto!important;
-}
-
-[npf-multimedia] + *, .npf_inst + * {
-    margin-top:var(--NPF-Captions-Spacing);
 }
