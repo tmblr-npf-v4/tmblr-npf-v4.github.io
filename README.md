@@ -9,8 +9,8 @@
 - [How to Use](#how-to-use)
 	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;basic setup
 	- [step 2](#step-2find-out-what-captions-your-theme-uses)&ensp;⸺&ensp;find out what type of captions your theme uses
-	- [old captions](#step-3-afor-old-captions)
-	- [new captions](#step-3-bfor-new-captions)
+	- [step 3 (option A)](#step-3-option-a)
+	- [step 3 (option B)](#step-3-option-b)
 - [Options / customization](#options)
 - [Need help?](#need-help)
 
@@ -51,7 +51,18 @@
 #### ⸨&ensp;WARNING&ensp;⸩
 If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you can find existing NPF modifications in your theme, you likely do not need to install this one.  
 
-I've tried to make this as easy to install as possible, but I can't guarantee that it'll be a "one size fits all" mod.
+I've tried to make this as easy to install as possible, but I can't guarantee that it'll be a "one size fits all" mod.  
+
+Please also be aware of the difference between the following:  
+
+| What you'll see         | Meaning                                       |
+|-------------------------|-----------------------------------------------|
+| `{block:Text}`          | this indicates the START of text entries      |
+| `{/block:Text}`         | this indicates the END of text entries        |
+| `{block:Reblogs}`       | this indicates the START of reblogged content |
+| `{/block:Reblogs}`      | this indicates the END of reblogged content   |
+| `<div class="hello">`   | this indicates the START of a wrapper         |
+| `</div>`                | this indicates the END of a wrapper           |
 
 ---
 
@@ -103,7 +114,7 @@ If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor
 
 ---
 
-###### STEP 3 (A)&ensp;⸺&ensp;FOR OLD CAPTIONS
+###### STEP 3 &ensp;⸺&ensp;OPTION A
 
 1. Using the searchbar, go to `{block:Text}`  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">  
@@ -115,7 +126,7 @@ If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor
 
 ---
 
-###### STEP 3 (B)&ensp;⸺&ensp;FOR NEW CAPTIONS
+###### STEP 3 &ensp;⸺&ensp;OPTION B
 
 1. Using the searchbar, go to `{block:Text}`  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png"> 
@@ -131,6 +142,10 @@ If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor
    {block:Reblogs}
    <div class="reblogger-head" npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
    ```
+
+3. A bit further down, just before `{/block:Reblogs}`, you should find a `{Body}`.  
+   Make sure that it's wrapped within something, like `<div class="reblog-body">{Body}</div>`. (The wrapper doesn't have to be called `"reblog-body"`).  
+   If it's not wrapped, highlight `{Body}` and replace it with the line above.
 ---
 
 #### ⸨&ensp;OPTIONS&ensp;⸩
