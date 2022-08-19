@@ -72,7 +72,7 @@ Please also be aware of the difference between the following:
 1. Go into `Edit HTML` of your blog's customize page, and locate `{block:Posts` by typing it into the searchbar:  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184795109-403aa334-dfe7-4831-830f-a621723b3129.png">  
    
-   Highlight it and replace it with:
+   Highlight that line and replace it with:
    ```
    {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
    ```
