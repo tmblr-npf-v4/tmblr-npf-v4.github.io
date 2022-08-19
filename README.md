@@ -129,18 +129,46 @@ If it exists, your theme uses **new captions**. Jump to [this step](#step-3-bfor
 ###### STEP 3 &ensp;⸺&ensp;OPTION B
 
 1. Using the searchbar, go to `{block:Text}`  
-   <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png"> 
-2. Travel a few lines down until you see `{block:Reblogs}`. Just after it, there should be a `div` that contains the reblogger information (usually it's their name and their icon). Paste this just before the **closing pointy right bracket** `>`:  
+   <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">
+2. See if you can find `{block:NotReblog}` a few lines down.  
+
+   **IF YOU SEE THIS: (no wrapping)**  
+   ```
+   {block:NotReblog}{Body}{/block:NotReblog}
+   ```
+   Highlight that, and replace it with:
+   ```
+   {block:NotReblog}
+   <div npf-multimedia original-post>{Body}</div>
+   {/block:NotReblog}
+   ```
+   **IF YOU SEE THIS: (has wrapping)**  
+   ```
+   {block:NotReblog}
+   <div class="some-wrapper">{Body}</div>
+   {/block:NotReblog}
+   ```
+   Add this just before the `>` before `{Body}`:
+   ```
+    npf-multimedia original-post
+   ```
+   Result:
+   ```
+   {block:NotReblog}
+   <div class="some-wrapper" npf-multimedia original-post>{Body}</div>
+   {/block:NotReblog}
+   ```
+3. Travel a few lines down until you see `{block:Reblogs}`. Just after it, there should be a `<div class="some-name">` that contains the reblogger information (usually it's their name and their icon). Paste this just before the **closing pointy right bracket** `>`:  
    
    ```
-    npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}
+    npf-multimedia reblogged-post
    ```
    
    Result should look something like this:
    
    ```
    {block:Reblogs}
-   <div class="reblogger-head" npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
+   <div class="reblogger-head" npf-multimedia reblogged-post>
    ```
 
 3. A bit further down, just before `{/block:Reblogs}`, you should find a `{Body}`.  
