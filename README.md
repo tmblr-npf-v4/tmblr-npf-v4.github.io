@@ -49,7 +49,7 @@
 ---
 
 #### ⸨&ensp;WARNING&ensp;⸩
-If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you can find existing NPF modifications in your theme, you likely do not need to install this one.  
+If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you *can* find existing NPF modifications in your theme, and you want to switch to this one, you need to remove your existing NPF fixes.   
 
 I've tried to make this as easy to install as possible, but I can't guarantee that it'll be a "one size fits all" mod.  
 
