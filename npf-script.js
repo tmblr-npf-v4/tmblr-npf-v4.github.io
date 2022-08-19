@@ -313,149 +313,158 @@ window.npf_v4_fix = function(o_o){
             let rmvop = $.trim(rootGET.getPropertyValue("--NPF-No-Caption-Remove-OP")).replace(/"/g,'');
           
             let npfbase = $("[npf-multimedia]");
-          
-            npfbase.each(function(){
-                let text_body = this;
-                // if npf's post is an ORIGINAL POST
-                if($(this).is("[original-post]")){
-                    $(this).find(".npf_inst:first").each(function(){
-                        // if similar to an original photo post
-                        // aka if there is no text before it
-                        if($.trim($(this).prevAll().text()) == ""){
-                            $(this).addClass("npf_photo_origin")
-                        }
-                    })
-                }
-        
-                // if npf's post is a REBLOG
-                else if($(this).is("[reblogged-post]")){
-                    $(this).find(".npf_inst:first").each(function(){
-                        // if similar to an original photo post
-                        // [1/2]: if there is no text before it
-                      
-                        // prev <p>, check conditions:
-                        // 1. that it exists
-                        // 2. that it has no text in it
-                        // 3. that there's nothing BEFORE it (the <p>)
-                        // 4. the photo-origin is OP, i.e. not a reblog trail
-                        let emP = $(this).prev("p");
-                        if(emP.length){
-                          if($.trim(emP.text()) == ""){
-                            if(!emP.prev().length){
-                              if(!$(text_body).prev(npfbase).length){
-                                $(this).addClass("npf_photo_origin");
-                                
-                                // NO caption
-                                if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
-                                  $(text_body).addClass("npf_no_caption");
-                                  
-                                  if(reloz == "yes"){                                
-                                    // if yes-move,
-                                    // a. move it to the top
-                                    // b. but only do it if user wishes to remove OP info
-                                    if(rmvop == "yes"){
-                                      emP.remove();
-                                      $(this).prependTo($(text_body));
-                                      $(this).nextAll().remove()
-                                    }
+            
+            function newCapts(){
+                npfbase.each(function(){
+                    let text_body = this;
+                    // if npf's post is an ORIGINAL POST
+                    if($(this).is("[original-post]")){
+                        $(this).find(".npf_inst:first").each(function(){
+                            // if similar to an original photo post
+                            // aka if there is no text before it
+                            if($.trim($(this).prevAll().text()) == ""){
+                                $(this).addClass("npf_photo_origin")
+                            }
+                        })
+                    }
+            
+                    // if npf's post is a REBLOG
+                    else if($(this).is("[reblogged-post]")){
+                        $(this).find(".npf_inst:first").each(function(){
+                            // if similar to an original photo post
+                            // [1/2]: if there is no text before it
+                          
+                            // prev <p>, check conditions:
+                            // 1. that it exists
+                            // 2. that it has no text in it
+                            // 3. that there's nothing BEFORE it (the <p>)
+                            // 4. the photo-origin is OP, i.e. not a reblog trail
+                            let emP = $(this).prev("p");
+                            if(emP.length){
+                              if($.trim(emP.text()) == ""){
+                                if(!emP.prev().length){
+                                  if(!$(text_body).prev(npfbase).length){
+                                    $(this).addClass("npf_photo_origin");
                                     
-                                    else if(rmvop == "no"){
-                                      $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
-                                    }                                
-                                  }//end if yes-move
-                                  
-                                  // if:
-                                  // a. no caption
-                                  // b. so OP info is ABOVE the npf image(s)
-                                  // c. user WANTS OP info to be removed
-                                  if(reloz == "no" && rmvop == "yes"){
-                                    emP.remove();
-                                    $(this).prependTo($(text_body));
-                                    $(this).nextAll().remove()
-                                  }
-                                }//end NO caption
-                                
-                                // HAS caption
-                                else {
-                                  $(text_body).addClass("npf_has_caption");
-                                  
-                                  if(reloz == "yes"){
-                                    emP.remove();
-                                    $(this).prependTo($(text_body));
-                                    $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
-                                  }
-                                }//end HAS caption
-                              }// end <p> condition #4
-                            } // end <p> condition #3                 
-                          }// end <p> condition #2
-                        }// end <p> condition #1
-                      
-                    })//end target first npf
-                }//end if post is a REBLOG
-        
-            })//end npfbase each
+                                    // NO caption
+                                    if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
+                                      $(text_body).addClass("npf_no_caption");
+                                      
+                                      if(reloz == "yes"){                                
+                                        // if yes-move,
+                                        // a. move it to the top
+                                        // b. but only do it if user wishes to remove OP info
+                                        if(rmvop == "yes"){
+                                          emP.remove();
+                                          $(this).prependTo($(text_body));
+                                          $(this).nextAll().remove()
+                                        }
+                                        
+                                        else if(rmvop == "no"){
+                                          $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
+                                        }                                
+                                      }//end if yes-move
+                                      
+                                      // if:
+                                      // a. no caption
+                                      // b. so OP info is ABOVE the npf image(s)
+                                      // c. user WANTS OP info to be removed
+                                      if(reloz == "no" && rmvop == "yes"){
+                                        emP.remove();
+                                        $(this).prependTo($(text_body));
+                                        $(this).nextAll().remove()
+                                      }
+                                    }//end NO caption
+                                    
+                                    // HAS caption
+                                    else {
+                                      $(text_body).addClass("npf_has_caption");
+                                      
+                                      if(reloz == "yes"){
+                                        emP.remove();
+                                        $(this).prependTo($(text_body));
+                                        $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
+                                      }
+                                    }//end HAS caption
+                                  }// end <p> condition #4
+                                } // end <p> condition #3                 
+                              }// end <p> condition #2
+                            }// end <p> condition #1
+                          
+                        })//end target first npf
+                    }//end if post is a REBLOG
+            
+                })//end npfbase each
+            }//end newCapts()
+            
+            newCapts();
         
             /*-------------------------------------------*/
             // OLD CAPTIONS
-            npfbase.each(function(){
-                let text_body = this;
-              
-                $(this).find(".npf_inst:first").each(function(){
-                    if(!$(this).prev().length){
-                        if($(this).parent().is("blockquote")){
-                            $(this).parent("blockquote").contents().filter(function(){
-                                return this.nodeType == 3
-                            }).wrap("<span/>");
-                          
-                            let peepee = $(this).parent().prev("p");
-                            if(peepee.length){
-                                // if previous <p> holds the @blog-name of OP
-                                if(peepee.find("a.tumblr_blog").length){
-                                    peepee.contents().filter(function(){
-                                        return this.nodeType == 3
-                                    }).wrap("<span/>");
-                                  
-                                    if(!peepee.prev().length){
-                                        $(this).addClass("npf_photo_origin");
-        
-                                        // if npf has NO caption
-                                        if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
-                                            $(text_body).addClass("npf_no_caption");
-                                          
-                                            peepee.find("span").each(function(){
-                                                if($.trim($(this).text()) == ":"){
-                                                    $(this).remove()
+            
+            function oldCapts(){
+                npfbase.each(function(){
+                    let text_body = this;
+                  
+                    $(this).find(".npf_inst:first").each(function(){
+                        if(!$(this).prev().length){
+                            if($(this).parent().is("blockquote")){
+                                $(this).parent("blockquote").contents().filter(function(){
+                                    return this.nodeType == 3
+                                }).wrap("<span/>");
+                              
+                                let peepee = $(this).parent().prev("p");
+                                if(peepee.length){
+                                    // if previous <p> holds the @blog-name of OP
+                                    if(peepee.find("a.tumblr_blog").length){
+                                        peepee.contents().filter(function(){
+                                            return this.nodeType == 3
+                                        }).wrap("<span/>");
+                                      
+                                        if(!peepee.prev().length){
+                                            $(this).addClass("npf_photo_origin");
+            
+                                            // if npf has NO caption
+                                            if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
+                                                $(text_body).addClass("npf_no_caption");
+                                              
+                                                peepee.find("span").each(function(){
+                                                    if($.trim($(this).text()) == ":"){
+                                                        $(this).remove()
+                                                    }
+                                                })
+            
+                                                peepee.prepend("(Source: ");
+                                                peepee.append(")");
+                                              
+                                                $(this).parent("blockquote").addClass("bbq-tbd");
+                                              
+                                                $(this).prependTo($(text_body))
+                                                $(".bbq-tbd").remove();
+                                                
+                                                if(rmvop == "yes"){
+                                                    peepee.remove()
                                                 }
-                                            })
-        
-                                            peepee.prepend("(Source: ");
-                                            peepee.append(")");
-                                          
-                                            $(this).parent("blockquote").addClass("bbq-tbd");
-                                          
-                                            $(this).prependTo($(text_body))
-                                            $(".bbq-tbd").remove();
+                                            }//end if-no-capt
                                             
-                                            if(rmvop == "yes"){
-                                                peepee.remove()
+                                            // if npf DOES HAVE caption
+                                            else {
+                                                if(reloz == "yes"){
+                                                    $(this).prependTo($(text_body));
+                                                }
                                             }
-                                        }//end if-no-capt
+                                        }// if a.tumblr-blog has no prev siblings
                                         
-                                        // if npf DOES HAVE caption
-                                        else {
-                                            if(reloz == "yes"){
-                                                $(this).prependTo($(text_body));
-                                            }
-                                        }
-                                    }// if a.tumblr-blog has no prev siblings
-                                    
-                                }//end if a.tumblr-blog exists
-                            }//end if peepee exists
-                        }//end if parent is <blockquote>
-                    }//end if npf_inst has no prev sibling
-                })//end npf_inst each
-                
-            })//end npfbase each
+                                    }//end if a.tumblr-blog exists
+                                }//end if peepee exists
+                            }//end if parent is <blockquote>
+                        }//end if npf_inst has no prev sibling
+                    })//end npf_inst each
+                    
+                })//end npfbase each
+            }//end oldCapts()
+            
+            oldCapts();
             
             /*-------------------------------------------*/
             // NPF LIGHTBOX BEHAVIOR, MOUSE CLICKS
@@ -568,12 +577,12 @@ window.npf_v4_fix = function(o_o){
                         $(".tmblr-lightbox").attr("current-npf",nextNPF);
                     }
                 }
-            }//end right arrow            
+            }//end right arrow
+            
+            $(window).load(function(){
+                npfIMGheights();
+                $("[bmlyi]").remove();
+            });
         });//end ready
-        
-        $(window).on("load", function(){
-            npfIMGheights();
-            $("[bmlyi]").remove();
-        });
     }//end dostuff
 }//end entire npf function
