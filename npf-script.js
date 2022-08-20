@@ -520,6 +520,7 @@ window.npf_v4_fix = function(o_o){
                                                     if($(text_body).find("blockquote").length){
                                                         if($.trim($(text_body).find("blockquote").text()) !== ""){
                                                             $(text_body).removeClass("npf_no_caption");
+                                                            $(text_body).addClass("npf_has_caption");
                                                         }
                                                     }
                                                 }
@@ -538,6 +539,7 @@ window.npf_v4_fix = function(o_o){
                                             else {
                                                 if(reloz == "yes"){
                                                     $(this).insertBefore($(text_body));
+                                                    $(text_body).addClass("npf_has_caption");
                                                 }
                                             }
                                         }// if a.tumblr-blog has no prev siblings
