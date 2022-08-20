@@ -531,7 +531,11 @@ window.npf_v4_fix = function(o_o){
                                                 $(".bbq-tbd").remove();
                                                 
                                                 if(rmvop == "yes"){
-                                                    peepee.remove()
+                                                    peepee.prev(".npf_photo_origin").addClass("npf_no_caption");
+                                                    peepee.remove();
+                                                    if($.trim($(text_body).html()) == ""){
+                                                        $(text_body).remove();
+                                                    }
                                                 }
                                             }//end if-no-capt
                                             
