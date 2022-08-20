@@ -513,6 +513,8 @@ window.npf_v4_fix = function(o_o){
             
                                                 peepee.prepend("(Source: ");
                                                 peepee.append(")");
+                                                
+                                                peepee.appendTo($(text_body));
                                               
                                                 $(this).parent("blockquote").addClass("bbq-tbd");
                                               
