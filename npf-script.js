@@ -515,6 +515,14 @@ window.npf_v4_fix = function(o_o){
                                                 peepee.append(")");
                                                 
                                                 peepee.appendTo($(text_body));
+                                                
+                                                if($(text_body).is("[reblogged-post]")){
+                                                    if($(text_body).find("blockquote").length){
+                                                        if(!$(text_body).find("blockquote").is(":empty")){
+                                                            $(text_body).removeClass("npf_no_caption");
+                                                        }
+                                                    }
+                                                }
                                               
                                                 $(this).parent("blockquote").addClass("bbq-tbd");
                                               
