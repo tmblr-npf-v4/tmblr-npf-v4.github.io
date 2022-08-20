@@ -305,15 +305,80 @@ window.npf_v4_fix = function(o_o){
                     },npf_lightbox_delay);
                 },npf_lightbox_delay);
             })// end click function
-          
+            
             /*-------------------------------------------*/
-            // MODERN CAPTIONS
-            // if: move 1st photoset
+            
             let reloz = $.trim(rootGET.getPropertyValue("--NPF-Move-1st-Photoset")).replace(/"/g,'');
             let rmvop = $.trim(rootGET.getPropertyValue("--NPF-No-Caption-Remove-OP")).replace(/"/g,'');
           
             let npfbase = $("[npf-multimedia]");
             
+            /*-------------------------------------------*/
+            // UNNESTED CAPTIONS
+            if($("script[src*='unnest.min.js']").length){
+                $(".tumblr_parent:has(.npf_inst):not(.tumblr_parent + .tumblr_parent)").each(function(){
+                    let tumblr_parent = this;
+                    $(this).find(".npf_inst:first").each(function(){
+                        
+                        // if img(s) has no prev text
+                        if($(this).prev("a.tumblr_blog").length || $(this).prev("p:empty").length){
+                            
+                            $(this).addClass("npf_photo_origin");
+                            
+                            // if NO caption
+                            if($.trim($(this).nextAll().text()) == "" || $.trim($(this).nextAll().html()) == ""){
+                                $(tumblr_parent).addClass("npf_no_caption");
+                            }
+                            
+                            // if HAS caption
+                            else {
+                                $(tumblr_parent).addClass("npf_has_caption");
+                            }
+                            
+                            // if yes: move 1st photoset
+                            if(reloz == "yes"){
+                                $(this).insertBefore($(this).parent(".tumblr_parent"));
+                                
+                                // if NO caption
+                                if($(tumblr_parent).hasClass("npf_no_caption")){
+                                    
+                                    if(rmvop == "yes"){
+                                        $(tumblr_parent).remove();
+                                    }
+                                    
+                                    if($(this).next(".tumblr_parent").length){
+                                        $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
+                                    }
+                                    
+                                }
+                                
+                                // if HAS caption
+                                else {
+                                    $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
+                                }
+                            }
+                            
+                            // if:
+                            // a. no caption
+                            // b. so OP info is ABOVE the npf image(s)
+                            // c. user WANTS OP info to be removed
+                            else if(reloz == "no" && rmvop == "yes"){
+                                if($(tumblr_parent).hasClass("npf_no_caption")){
+                                    $(this).insertBefore($(this).parent($(tumblr_parent)));
+                                    $(this).next($(tumblr_parent)).remove();
+                                    $(this).css("margin-bottom","var(--NPF-Captions-Spacing)")
+                                    
+                                }
+                            }
+                            
+                        }//end if no prev text
+                    })//end .tumblr_parent's 1st npf photoset
+                })//end .tumblr_parent has npf
+            }//end if unnest.min.js exists
+          
+            /*-------------------------------------------*/
+            // MODERN CAPTIONS
+            // if: move 1st photoset
             function newCapts(){
                 npfbase.each(function(){
                     let text_body = this;
