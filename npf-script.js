@@ -518,7 +518,7 @@ window.npf_v4_fix = function(o_o){
                                                 
                                                 if($(text_body).is("[reblogged-post]")){
                                                     if($(text_body).find("blockquote").length){
-                                                        if(!$(text_body).find("blockquote").is(":empty")){
+                                                        if($.trim($(text_body).find("blockquote").text()) !== ""){
                                                             $(text_body).removeClass("npf_no_caption");
                                                         }
                                                     }
