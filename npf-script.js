@@ -387,7 +387,7 @@ window.npf_v4_fix = function(o_o){
                         $(this).find(".npf_inst:first").each(function(){
                             // if similar to an original photo post
                             // aka if there is no text before it
-                            if($.trim($(this).prevAll("p").text()) == ""){
+                            if($.trim($(this).prevAll().text()) == "" || $.trim($(this).prevAll().html()) == ""){
                                 $(this).addClass("npf_photo_origin");
                                 $(this).insertBefore($(text_body));
                                 
@@ -419,7 +419,7 @@ window.npf_v4_fix = function(o_o){
                             let emP = $(this).prev("p");
                             if(emP.length){
                               if($.trim(emP.text()) == ""){
-                                if(!emP.prev().length){
+                                if(!emP.prev("p:not(:empty))").length){
                                   if(!$(text_body).prev(npfbase).length){
                                     $(this).addClass("npf_photo_origin");
                                     
