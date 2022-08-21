@@ -260,7 +260,7 @@ window.npf_v4_fix = function(o_o){
         
             /*-------------------------------------------*/
             
-            $(".npf_inst .post_media_photo_anchor").click(function(){
+            $(".npf_inst:not(:has([data-npf*='video']) .post_media_photo_anchor").click(function(){
         
                 $("body").addClass("npf-lightbox-active");
                 
