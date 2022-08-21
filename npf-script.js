@@ -387,7 +387,7 @@ window.npf_v4_fix = function(o_o){
                         $(this).find(".npf_inst:first").each(function(){
                             // if similar to an original photo post
                             // aka if there is no text before it
-                            if($.trim($(this).prevAll().text()) == ""){
+                            if($.trim($(this).prevAll("p").text()) == ""){
                                 $(this).addClass("npf_photo_origin");
                                 $(this).insertBefore($(text_body));
                                 
