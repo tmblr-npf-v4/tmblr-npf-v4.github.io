@@ -7,8 +7,14 @@ p + [npf-multimedia], p + .npf_inst {
 }
 
 /*----- NPF CAPTIONS SPACING -----*/
-*:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
+/* *:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
     margin-top:var(--NPF-Captions-Spacing);
+} */
+
+p:not(:empty) + [npf-multimedia],
+p:not(:empty) + .npf_inst,
+.npf_inst:not(.npf_photo_origin) + p:not(:empty){
+    margin-top:1em;
 }
 
 [npf-multimedia] + *, .npf_inst + * {
