@@ -255,12 +255,15 @@ window.npf_v4_fix = function(o_o){
                 // remove the auto-lightbox on single npf images
                 // (originally on a.post_media_photo_anchor)
                 $("[data-big-photo]",this).removeAttr("data-big-photo");
-        
+                
+                if($(this).find(".tmblr-full[data-npf*='video']").length){
+                    $(this).addClass("npf_has_video");
+                }
             })//end .npf_inst
         
             /*-------------------------------------------*/
             
-            $(".npf_inst:not(:has([data-npf*='video']) .post_media_photo_anchor").click(function(){
+            $(".npf_inst:not(.npf_has_video) .post_media_photo_anchor").click(function(){
         
                 $("body").addClass("npf-lightbox-active");
                 
