@@ -2,14 +2,10 @@
     visibility:hidden;
 }
 
+/*----- NPF PARAGRAPH SPACING -----*/
 p + [npf-multimedia], p + .npf_inst {
     margin-top:1em;
 }
-
-/*----- NPF CAPTIONS SPACING -----*/
-/* *:not(p) + [npf-multimedia], *:not(p) + .npf_inst {
-    margin-top:var(--NPF-Captions-Spacing);
-} */
 
 p:not(:empty) + [npf-multimedia],
 p:not(:empty) + .npf_inst,
@@ -17,6 +13,7 @@ p:not(:empty) + .npf_inst,
     margin-top:1em;
 }
 
+/*----- NPF CAPTIONS SPACING -----*/
 [npf-multimedia] + *, .npf_inst + * {
     margin-top:var(--NPF-Captions-Spacing);
 }
@@ -32,21 +29,6 @@ p:not(:empty) + .npf_inst,
 .npf_col + .npf_col {
     margin-left:var(--NPF-Photoset-Spacing)!important;
 }
-
-/*------------------------------*/
-
-.npf_inst {
-/*     display:inline-block;
-    vertical-align:middle; */
-    width:100%;
-}
-
-/* 
-[npf-multimedia] *:not(p, .tmblr-attribution, .tmblr-alt-text-helper),
-.npf_inst *:not(p, .tmblr-attribution, .tmblr-alt-text-helper){
-    font-size:0;
-    line-height:0;
-} */
 
 /*----- RE-INITIALIZE NPF STYLING -----*/
 .npf_row {
