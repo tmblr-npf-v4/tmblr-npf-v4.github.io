@@ -171,7 +171,7 @@ If it exists, jump to [this step](#step-3-option-b).
    <div class="some-name" npf-multimedia reblogged-post>
    ```
 
-3. **Only proceed with this step if the photoset rearranging isn't working.** 
+3. **Only proceed with this step if the photoset rearranging isn't working.**  
    A bit further down, just before `{/block:Reblogs}`, you should find a `{Body}`.  
    Make sure that it's wrapped within something, like `<div class="reblog-body">{Body}</div>`. (The wrapper doesn't have to be called `"reblog-body"`).  
    If it's not wrapped, highlight `{Body}` and replace it with the line above.
