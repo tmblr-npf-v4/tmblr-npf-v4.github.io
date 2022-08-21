@@ -419,7 +419,7 @@ window.npf_v4_fix = function(o_o){
                             let emP = $(this).prev("p");
                             if(emP.length){
                               if($.trim(emP.text()) == ""){
-                                if(!emP.prev("p:not(:empty))").length){
+                                if(!emP.prevAll("p").length){
                                   if(!$(text_body).prev(npfbase).length){
                                     $(this).addClass("npf_photo_origin");
                                     
