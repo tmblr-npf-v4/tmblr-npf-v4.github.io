@@ -207,58 +207,58 @@ window.npf_v4_fix = function(o_o){
             $(".npf_inst").each(function(){
                 var that = $(this);
                 
-                $(this).attr("npf-id","npf_" + Math.random().toString(36).substr(2, 5))
-                
-                $(this).find(".post_media_photo_anchor").each(function(a_a){
-                    a_a += 1;
-                    $(this).attr("npf-order",a_a)
-                })
-        
-                /*----------*/
-            	
-            	$(this).find(".post_media_photo_anchor img").each(function(m_m){
-            	    m_m += 1;
-            	    $(this).attr("npf-img-order",m_m);
-            	})
-            	
-            	/*----------*/
-        
-                let aerie = [];
-        
-                // enable new object creation
-                function npfIMG(w, h, ld, hd){
-                  this.width = Number(w);
-                  this.height = Number(h);
-                  this.low_res = ld;
-                  this.high_res = ld; // temporarily make the HD version == the ONLY available img src
-                }
-        
-                $(".post_media_photo_anchor",this).each(function(){
-                  aerie.push(new npfIMG(
-                    $(this).attr("data-big-photo-width"),
-                    $(this).attr("data-big-photo-height"),
-                    $(this).attr("data-big-photo"),
-                    $(this).attr("data-big-photo")
-                  ));
-                
-                $("body").prepend("<div bmlyi style='position:absolute; top:0; left:0; width:0; height:0; visibility:hidden'><img src='" + $(this).attr("data-big-photo") + "'></div>");
-                })
-        
-                $(".post_media_photo_anchor",this).attr("onclick","Tumblr.Lightbox.init(" + JSON.stringify(aerie) + ")")
-                
-                // make npf images HD
-                $(this).find("[data-big-photo]:has(img)").each(function(){
-                    let bbdd = $(this).attr("data-big-photo");
-                    $(this).find("img").attr("src",bbdd)
-                })
-        
-                // remove the auto-lightbox on single npf images
-                // (originally on a.post_media_photo_anchor)
-                $("[data-big-photo]",this).removeAttr("data-big-photo");
-                
                 if($(this).find(".tmblr-full[data-npf*='video']").length){
                     $(this).addClass("npf_has_video");
-                }
+                } else {
+                    $(this).attr("npf-id","npf_" + Math.random().toString(36).substr(2, 5))
+                    
+                    $(this).find(".post_media_photo_anchor").each(function(a_a){
+                        a_a += 1;
+                        $(this).attr("npf-order",a_a)
+                    })
+            
+                    /*----------*/
+                	
+                	$(this).find(".post_media_photo_anchor img").each(function(m_m){
+                	    m_m += 1;
+                	    $(this).attr("npf-img-order",m_m);
+                	})
+                	
+                	/*----------*/
+            
+                    let aerie = [];
+            
+                    // enable new object creation
+                    function npfIMG(w, h, ld, hd){
+                      this.width = Number(w);
+                      this.height = Number(h);
+                      this.low_res = ld;
+                      this.high_res = ld; // temporarily make the HD version == the ONLY available img src
+                    }
+            
+                    $(".post_media_photo_anchor",this).each(function(){
+                      aerie.push(new npfIMG(
+                        $(this).attr("data-big-photo-width"),
+                        $(this).attr("data-big-photo-height"),
+                        $(this).attr("data-big-photo"),
+                        $(this).attr("data-big-photo")
+                      ));
+                    
+                    $("body").prepend("<div bmlyi style='position:absolute; top:0; left:0; width:0; height:0; visibility:hidden'><img src='" + $(this).attr("data-big-photo") + "'></div>");
+                    })
+            
+                    $(".post_media_photo_anchor",this).attr("onclick","Tumblr.Lightbox.init(" + JSON.stringify(aerie) + ")")
+                    
+                    // make npf images HD
+                    $(this).find("[data-big-photo]:has(img)").each(function(){
+                        let bbdd = $(this).attr("data-big-photo");
+                        $(this).find("img").attr("src",bbdd)
+                    })
+            
+                    // remove the auto-lightbox on single npf images
+                    // (originally on a.post_media_photo_anchor)
+                    $("[data-big-photo]",this).removeAttr("data-big-photo");
+                }//end: if <video> does not exist
             })//end .npf_inst
         
             /*-------------------------------------------*/
@@ -674,6 +674,10 @@ window.npf_v4_fix = function(o_o){
                     }
                 }
             }//end right arrow
+            
+            $(".npf_no_caption .npf_no_caption").each(function(){
+                $(this).removeClass("npf_no_caption")
+            })
             
             $(window).load(function(){
                 npfIMGheights();
