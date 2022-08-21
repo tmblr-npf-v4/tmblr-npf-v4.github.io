@@ -47,6 +47,7 @@ p:not(:empty) + .npf_inst,
 
 .tmblr-full {
     display:flex;
+    flex-direction:column;
     padding-bottom:0!important;
 }
 
