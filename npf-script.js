@@ -420,7 +420,7 @@ window.npf_v4_fix = function(o_o){
                             if(emP.length){
                               if($.trim(emP.text()) == ""){
                                 if(!emP.prevAll("p").length){
-                                  if(!$(text_body).prev(npfbase).length){
+                                  if(!$(text_body).prev("[npf-multimedia]").length){
                                     $(this).addClass("npf_photo_origin");
                                     
                                     // NO caption
