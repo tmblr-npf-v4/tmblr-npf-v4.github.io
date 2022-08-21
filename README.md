@@ -7,10 +7,6 @@
 - [Features](#features)
 - [Warning](#warning)
 - [How to Use](#how-to-use)
-	- [step 1](#step-1basic-setup)&ensp;⸺&ensp;basic setup
-	- [step 2](#step-2find-out-what-captions-your-theme-uses)&ensp;⸺&ensp;find out what type of captions your theme uses
-	- [step 3 (option A)](#step-3-option-a)
-	- [step 3 (option B)](#step-3-option-b)
 - [Options / customization](#options)
 - [Need help?](#need-help)
 
@@ -49,26 +45,14 @@
 ---
 
 #### ⸨&ensp;WARNING&ensp;⸩
-If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you *can* find existing NPF modifications in your theme, and you want to switch to this one, you need to remove your existing NPF fixes.   
+If your theme already uses a NPF fix, such as my previous versions or @codematurgy's (search for `boscoxvi` in your theme), there *will* be conflicts and things may go wrong. If you *can* find existing NPF modifications in your theme but you want to switch to this one, **you need to remove your existing NPF fixes.**   
 
-I've tried to make this as easy to install as possible, but I can't guarantee that it'll be a "one size fits all" mod.  
-
-Please also be aware of the difference between the following:  
-
-| What you'll see         | Meaning                                       |
-|-------------------------|-----------------------------------------------|
-| `{block:Text}`          | this indicates the START of text entries      |
-| `{/block:Text}`         | this indicates the END of text entries        |
-| `{block:Reblogs}`       | this indicates the START of reblogged content |
-| `{/block:Reblogs}`      | this indicates the END of reblogged content   |
-| `<div class="hello">`   | this indicates the START of a wrapper         |
-| `</div>`                | this indicates the END of a wrapper           |
+I've tried to make this as easy to install as possible, but I can't guarantee that it'll be a "one size fits all" mod. Feel free to [send me a message](#need-help) if you have any questions or problems.  
 
 ---
 
 #### ⸨&ensp;HOW TO USE&ensp;⸩
 
-###### STEP 1&ensp;⸺&ensp;BASIC SETUP
 1. Go into `Edit HTML` of your blog's customize page, and locate `{block:Posts` by typing it into the searchbar:  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184795109-403aa334-dfe7-4831-830f-a621723b3129.png">  
    
@@ -103,78 +87,17 @@ Please also be aware of the difference between the following:
    </style>
    ```
 
----
-
-###### STEP 2&ensp;⸺&ensp;FIND OUT WHAT CAPTIONS YOUR THEME USES
-
-Using the searchbar, search for `{block:Reblogs}`  
-<img width="350" src="https://user-images.githubusercontent.com/110954255/184223511-62fa418c-815a-4272-8112-2ac8aa2fdc94.png">  
-If it doesn't exist, jump to [this step](#step-3-option-a).  
-If it exists, jump to [this step](#step-3-option-b).
-
----
-
-###### STEP 3 &ensp;⸺&ensp;OPTION A
-
-1. Using the searchbar, go to `{block:Text}`  
+3. Using the searchbar, find and go to `{block:Text}`  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">  
-2. There should be a `{Body}` in there. Highlight it, and replace it with:
-  
+   Right after it, paste this:
    ```
-   <div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>{Body}</div>
+   <div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
    ```
-
----
-
-###### STEP 3 &ensp;⸺&ensp;OPTION B
-
-1. Using the searchbar, go to `{block:Text}`  
-   <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">
-2. See if you can find `{block:NotReblog}` a few lines down.  
-
-   **IF YOU SEE THIS: (no wrapping)**  
+4. Go down a few lines until you see `{/block:Text}`.  
+   Just before it, paste this:
    ```
-   {block:NotReblog}{Body}{/block:NotReblog}
+   </div><!--end npf text-->
    ```
-   Highlight that, and replace it with:
-   ```
-   {block:NotReblog}
-   <div npf-multimedia original-post>{Body}</div>
-   {/block:NotReblog}
-   ```
-   **IF YOU SEE THIS: (has wrapping)**  
-   ```
-   {block:NotReblog}
-   <div class="some-wrapper">{Body}</div>
-   {/block:NotReblog}
-   ```
-   Add this just before the `>` before `{Body}`:
-   ```
-    npf-multimedia original-post
-   ```
-   Result:
-   ```
-   {block:NotReblog}
-   <div class="some-wrapper" npf-multimedia original-post>{Body}</div>
-   {/block:NotReblog}
-   ```
-3. Travel a few lines down until you see `{block:Reblogs}`. Just after it, there should be a `<div class="some-name">` that contains the reblogger information (usually it's their name and their icon). Paste this just before the **closing pointy right bracket** `>`:  
-   
-   ```
-    npf-multimedia reblogged-post
-   ```
-   
-   Result should look something like this:
-   
-   ```
-   {block:Reblogs}
-   <div class="some-name" npf-multimedia reblogged-post>
-   ```
-
-3. **Only proceed with this step if the photoset rearranging isn't working.**  
-   A bit further down, just before `{/block:Reblogs}`, you should find a `{Body}`.  
-   Make sure that it's wrapped within something, like `<div class="reblog-body">{Body}</div>`. (The wrapper doesn't have to be called `"reblog-body"`).  
-   If it's not wrapped, highlight `{Body}` and replace it with the line above.
 ---
 
 #### ⸨&ensp;OPTIONS&ensp;⸩
