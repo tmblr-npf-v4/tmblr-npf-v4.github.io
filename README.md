@@ -102,9 +102,7 @@ I've tried to make this as easy to install as possible, but I can't guarantee th
    </div>
    ```
    If you can't find `{block:NotReblog}` or `{block:Reblogs}`, highlight `{Body}` and replace it with:
-   ```
-   <div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
-   ```
+   > `<div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>{Body}</div>`
 ---
 
 #### ⸨&ensp;OPTIONS&ensp;⸩
