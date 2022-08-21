@@ -89,14 +89,21 @@ I've tried to make this as easy to install as possible, but I can't guarantee th
 
 3. Using the searchbar, find and go to `{block:Text}`  
    <img width="350" src="https://user-images.githubusercontent.com/110954255/184223991-f465ca44-9082-4ece-8cc9-be49d95f5927.png">  
-   Right after it, paste this:
+   If you can find `{block:NotReblog}`, highlight the `{Body}` inside it and replace it with:
+   ```
+   <div npf-multimedia original-post>{Body}</div>
+   ```
+   Further down, if you can find `{block:Reblogs}`, paste this directly under it:
+   ```
+   <div npf-multimedia reblogged-post>
+   ```
+   Paste this just before `{/block:Reblogs}`:
+   ```
+   </div>
+   ```
+   If you can't find `{block:NotReblog}` or `{block:Reblogs}`, highlight `{Body}` and replace it with:
    ```
    <div npf-multimedia {block:NotReblog}original-post{/block:NotReblog} {block:RebloggedFrom}reblogged-post{/block:RebloggedFrom}>
-   ```
-4. Go down a few lines until you see `{/block:Text}`.  
-   Just before it, paste this:
-   ```
-   </div><!--end npf text-->
    ```
 ---
 
